@@ -1,0 +1,27 @@
+import Link from 'next/link';
+import React from 'react';
+
+const Navbar = () => {
+    return (
+        <nav className="bg-gray-800 text-white p-4">
+            <ul className="flex">
+                <li className="mr-6">
+                    <Link className="text-white hover:text-gray-300" href="/">
+                        Home
+                    </Link>
+                </li>
+                {{#each items}}
+                {{#unless (startsWith id '_pb')}}
+                <li className="mr-6">
+                    <Link className="text-white hover:text-gray-300" href="/{{name}}">
+                       {{name}}
+                    </Link>
+                </li>
+                {{/unless}}
+                {{/each}}
+            </ul>
+        </nav>
+    );
+};
+
+export default Navbar;

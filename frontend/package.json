@@ -1,0 +1,49 @@
+{
+  "name": "frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "pb-sync": "tsx ./pb-sync.ts"
+  },
+  "dependencies": {
+    "@radix-ui/react-avatar": "^1.0.4",
+    "@radix-ui/react-checkbox": "^1.0.4",
+    "@radix-ui/react-dropdown-menu": "^2.0.6",
+    "@radix-ui/react-label": "^2.0.2",
+    "@radix-ui/react-menubar": "^1.0.4",
+    "@radix-ui/react-slot": "^1.0.2",
+    "@react-three/drei": "^9.96.4",
+    "@react-three/fiber": "^8.15.14",
+    "@react-three/postprocessing": "2.7.0",
+    "@tanstack/react-table": "^8.11.7",
+    "@types/three": "^0.160.0",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.0",
+    "handlebars": "^4.7.8",
+    "lucide-react": "^0.315.0",
+    "next": "14.1.0",
+    "node-fetch": "^3.3.2",
+    "react": "^18",
+    "react-dom": "^18",
+    "tailwind-merge": "^2.2.1",
+    "tailwindcss-animate": "^1.0.7",
+    "three": "^0.160.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "autoprefixer": "^10.0.1",
+    "eslint": "^8",
+    "eslint-config-next": "14.1.0",
+    "postcss": "^8",
+    "raw-loader": "^4.0.2",
+    "tailwindcss": "^3.3.0",
+    "tsx": "^4.7.0",
+    "typescript": "^5"
+  }
+}
