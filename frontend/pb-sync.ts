@@ -1,13 +1,16 @@
+import * as dotenv from 'dotenv';
+
 import fs from 'fs';
 import path from 'path';
 import Handlebars from 'handlebars';
 
+dotenv.config();
 
 const postAuth = async () => {
     const authEndpoint = 'http://localhost:8090/api/admins/auth-with-password';
     const authData = {
-        identity: '#',
-        password: '#'
+        identity: process.env.IDENTITY,
+        password: process.env.PASSWORD
     };
 
     try {
@@ -62,14 +65,14 @@ function generateFiles(data: object) {
     Handlebars.registerHelper('startsWith', (value, prefix) => value.startsWith(prefix));
 
     // Read the template file
-    const templateSource = fs.readFileSync(path.join(__dirname, 'templates', 'navbar.hbs'), 'utf8');
+    const templateSource = fs.readFileSync(path.join(__dirname, 'templates', 'menubar.hbs'), 'utf8');
     const template = Handlebars.compile(templateSource);
 
     // Generate the navbar component
     const navbarComponent = template(data);
 
     // Write to a file
-    fs.writeFileSync(path.join(__dirname, 'app', 'navbar.tsx'), navbarComponent);
+    fs.writeFileSync(path.join(__dirname, 'app', 'menubar.tsx'), navbarComponent);
 }
 
 postAuth();

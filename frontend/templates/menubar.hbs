@@ -1,0 +1,52 @@
+'use client';
+
+import Link from 'next/link';
+import { usePathname } from 'next/navigation'
+
+
+const Menubar = () => {
+    const pathname = usePathname();
+    return (
+        <div className="flex mb-4">
+            {{#each items}}
+            {{#unless (startsWith id '_pb')}}
+            <Link
+                className={`flex h-7 items-center justify-center rounded-full px-4 text-center text-sm transition-colors hover:text-primary font-medium text-muted-foreground capitalize
+                ${pathname == '/{{name}}' ? ' text-primary bg-muted' : ""}`}
+                href="/{{name}}"
+            >
+            {{name}}
+            </Link>
+            {{/unless}}
+            {{/each}}
+        </div>
+    );
+};
+
+export default Menubar;
+
+{{!-- 
+const Navbar = () => {
+    return (
+        <nav className="bg-gray-800 text-white p-4">
+            <ul className="flex">
+                <li className="mr-6">
+                    <Link className="text-white hover:text-gray-300" href="/">
+                        Home
+                    </Link>
+                </li>
+                {{#each items}}
+                {{#unless (startsWith id '_pb')}}
+                <li className="mr-6">
+                    <Link className="text-white hover:text-gray-300" href="/{{name}}">
+                       {{name}}
+                    </Link>
+                </li>
+                {{/unless}}
+                {{/each}}
+            </ul>
+        </nav>
+    );
+};
+
+export default Navbar; --}}
