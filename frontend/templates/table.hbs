@@ -1,0 +1,25 @@
+import {
+  ColumnDef,
+} from "@tanstack/react-table"
+
+export const columns: ColumnDef<{{capitalize name}}>[] = [
+    {{#each schema}}
+    {
+      accessorKey: "{{name}}",
+      header: "{{capitalize name}}",
+      cell: ({{#ifCond type '===' 'number'}}{ row }) => {
+        const value = parseFloat(row.getValue("{{name}}"));
+        return <div>{{value}}</div>;
+      }{{else ifCond type '===' 'bool'}}{ row }) => {
+        return <div>{row.getValue("{{name}}") ? 'Yes' : 'No'}</div>;
+      }{{else ifCond type '===' 'email'}}{ row }) => {
+        return <div className="lowercase">{row.getValue("{{name}}")}</div>;
+      }{{else ifCond type '===' 'date'}}{ row }) => {
+        return <div>{new Date(row.getValue("{{name}}")).toLocaleDateString()}</div>;
+      }{{else}}{ row }) => {
+        return <div>{row.getValue("{{name}}")}</div>;
+      }{{/ifCond}},
+    },
+    {{/each}}
+  ];
+  

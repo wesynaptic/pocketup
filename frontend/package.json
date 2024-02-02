@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "pb-sync": "tsx ./pb-sync.ts"
+    "pb-sync": "tsx ./pb-sync.ts",
+    "create-table": "tsx ./create-table.ts"
   },
   "dependencies": {
     "@radix-ui/react-avatar": "^1.0.4",
