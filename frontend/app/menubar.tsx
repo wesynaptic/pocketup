@@ -10,13 +10,6 @@ const Menubar = () => {
         <div className="flex mb-4">
             <Link
                 className={`flex h-7 items-center justify-center rounded-full px-4 text-center text-sm transition-colors hover:text-primary font-medium text-muted-foreground capitalize
-                ${pathname == '/posts' ? ' text-primary bg-muted' : ""}`}
-                href="/posts"
-            >
-            posts
-            </Link>
-            <Link
-                className={`flex h-7 items-center justify-center rounded-full px-4 text-center text-sm transition-colors hover:text-primary font-medium text-muted-foreground capitalize
                 ${pathname == '/test' ? ' text-primary bg-muted' : ""}`}
                 href="/test"
             >
@@ -34,4 +27,3 @@ const Menubar = () => {
 };
 
 export default Menubar;
-

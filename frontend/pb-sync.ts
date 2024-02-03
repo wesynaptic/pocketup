@@ -66,8 +66,11 @@ const generateFiles = async (collections: any) => {
 
   const pageTemplate = await loadTemplate('page');
   const tableTemplate = await loadTemplate('table');
+  const menubarTemplate = await loadTemplate('menubar');
 
-  for (const collection of collections.items.filter(collection => !collection.id.startsWith('_pb_'))) {
+  const nonSystemCollections = collections.items.filter(collection => !collection.id.startsWith('_pb_'));
+
+  for (const collection of nonSystemCollections) {
     const dirPath = path.join(__dirname, 'app', collection.name);
     await fs.mkdir(dirPath, { recursive: true });
 
@@ -77,6 +80,10 @@ const generateFiles = async (collections: any) => {
     const tableComponent = tableTemplate(collection);
     await fs.writeFile(path.join(dirPath, 'table.tsx'), tableComponent);
   }
+
+  const menubarComponent = menubarTemplate({items: nonSystemCollections});
+  await fs.writeFile(path.join(__dirname, 'app', 'menubar.tsx'), menubarComponent);
+
 };
 
 // Main function to control the flow
